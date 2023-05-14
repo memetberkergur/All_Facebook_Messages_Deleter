@@ -32,6 +32,7 @@ class FacebookMessageDeleter:
     def delete_messages(self):
         # Mesajlar sayfasına gidin
         self.driver.get("https://www.facebook.com/messages")
+        time.sleep(5)
 
         # Tüm mesajları silin
         while True:
@@ -93,7 +94,7 @@ class GUI:
     def login_and_delete(self, event=None):
         username = self.username_entry.get()
         password = self.password_entry.get()
-
+        
         # FacebookMessageDeleter sınıfından bir örnek oluşturun
         message_deleter = FacebookMessageDeleter("path/to/chromedriver")
         message_deleter.login(username, password)
