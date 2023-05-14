@@ -7,13 +7,18 @@ class FacebookMessageDeleter:
     def __init__(self, driver_path):
         self.driver_path = driver_path
         self.driver = None
+        
 
     def login(self, username, password):
         # Web sürücüsünü başlatın
         self.driver = webdriver.Chrome(self.driver_path)
 
+        # Web sürücüsünü tam ekran yapın
+        self.driver.maximize_window()
+
         # Facebook'a gidin
         self.driver.get("https://www.facebook.com")
+
 
         # Facebook girişi yapın (kullanıcı adı ve şifrenizi girin)
         email_input = self.driver.find_element("id", "email")
